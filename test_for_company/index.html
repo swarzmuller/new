@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Style -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- Item slider-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+        <div class="carousel-inner">
+
+          <div class="item active">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <a href="#"><img src="img/1.jpg" class="img-responsive center-block"></a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <a href="#"><img src="img/2.jpg" class="img-responsive center-block"></a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <a href="#"><img src="img/3.jpg" class="img-responsive center-block"></a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <a href="#"><img src="img/4.jpg" class="img-responsive center-block"></a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <a href="#"><img src="img/5.jpg" class="img-responsive center-block"></a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <a href="#"><img src="img/6.jpg" class="img-responsive center-block"></a>
+            </div>
+          </div>
+        </div>
+        <div id="slider-control">
+        <a class="left carousel-control" href="#itemslider" data-slide="prev">prev</a>
+        <a class="right carousel-control" href="#itemslider" data-slide="next">next</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Item slider end-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+      $(document).ready(function(){
+
+          $('#itemslider').carousel({ interval: 3000 });
+
+          $('.carousel-showmanymoveone .item').each(function(){
+          var itemToClone = $(this);
+
+          for (var i=1;i<3;i++) {
+          itemToClone = itemToClone.next();
+
+          if (!itemToClone.length) {
+          itemToClone = $(this).siblings(':first');
+          }
+
+          itemToClone.children(':first-child').clone()
+          .addClass("cloneditem-"+(i))
+          .appendTo($(this));
+          }
+          });
+          });
+
+    </script>
+  </body>
+</html>
